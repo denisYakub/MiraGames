@@ -7,7 +7,17 @@
     <SpaRoot>..\miragames.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:49989</SpaProxyServerUrl>
+    <UserSecretsId>b47a99f4-44ba-4cba-967f-d4055319938d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\index-BHteMZKb.js" />
+    <None Include="wwwroot\assets\index-Dtn62Xmo.css" />
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\vite.svg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
@@ -20,6 +30,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.1" />

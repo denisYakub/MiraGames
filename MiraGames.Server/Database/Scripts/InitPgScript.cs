@@ -1,4 +1,5 @@
-﻿using MiraGames.Server.Database.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using MiraGames.Server.Database.Contexts;
 using MiraGames.Server.Entities;
 using MiraGames.Server.Entities.Enums;
 using MiraGames.Server.Interfaces;
@@ -15,6 +16,8 @@ namespace MiraGames.Server.Database.Scripts
             using var scope = services.CreateScope();
             var contex = scope.ServiceProvider.GetRequiredService<PostgresContext>();
             var token = scope.ServiceProvider.GetRequiredService<ITokenService<User>>();
+
+            contex.Database.Migrate();
 
             if (contex.Users.Any() || contex.Rates.Any() || contex.Payments.Any())
                 return;

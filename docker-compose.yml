@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  miragames.server:
+    image: miragames
+    build:
+      context: .
+      dockerfile: MiraGames.Server/Dockerfile
+    ports:
+        - "8080:8080"
+    depends_on:
+        - postgres
+    environment:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__PostgresConnection: Host=postgres;Port=5432;Database=miradb;Username=miradmin;Password=secret
+          Jwt__Key: denis-magic-key-jwt-token-89218840117
+          Jwt__Issuer: MiraGames
+          Jwt__Audience: MiraUsers
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: miradb
+      POSTGRES_USER: miradmin
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  
+        
