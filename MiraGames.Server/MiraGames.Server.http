@@ -1,0 +1,6 @@
+@MiraGames.Server_HostAddress = http://localhost:5276
+
+GET {{MiraGames.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
